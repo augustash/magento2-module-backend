@@ -14,9 +14,9 @@ This module must be installed to use and to configure the other August Ash modul
 
 ```bash
 composer config repositories.augustash composer https://packages.augustash.com/repo/private
-composer require augustash/module-backend:1.0.0
+composer require augustash/module-backend:1.0.1
 ```
 
 ## Structure
 
-[Typical file structure for a Magento 2 module](http://devdocs.magento.com/guides/v2.2/extension-dev-guide/build/module-file-structure.html).
+[Typical file structure for a Magento 2 module](http://devdocs.magento.com/guides/v2.3/extension-dev-guide/build/module-file-structure.html).

@@ -1,9 +1,17 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * August Ash Backend Module
+ *
+ * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @copyright 2019 August Ash, Inc.
+ */
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <design>
             <head>
-                <default_title>Magento Open-source August Ash Edition</default_title>
+                <default_title>Magento August Ash Edition</default_title>
                 <default_keywords>Magento, E-commerce, Growth</default_keywords>
             </head>
         </design>

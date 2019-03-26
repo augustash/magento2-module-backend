@@ -2,12 +2,16 @@
     "name": "augustash/module-backend",
     "description": "N/A",
     "type": "magento2-module",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "license": [
         "proprietary"
     ],
     "config": {
         "sort-packages": true
+    },
+    "require": {
+        "magento/module-backend": "*",
+        "magento/framework": "*"
     },
     "autoload": {
         "files": [

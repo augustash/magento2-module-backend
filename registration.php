@@ -1,5 +1,4 @@
 <?php
-
 /**
  * August Ash Backend Module
  *

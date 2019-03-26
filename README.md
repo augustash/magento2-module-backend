@@ -14,7 +14,7 @@ This module must be installed to use and to configure the other August Ash modul
 
 ```bash
 composer config repositories.augustash composer https://packages.augustash.com/repo/private
-composer require augustash/module-backend:1.0.1
+composer require augustash/module-backend:~2.0.0
 ```
 
 ## Structure

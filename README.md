@@ -10,6 +10,7 @@ The `Augustash_Backend` module is our base structural module for all August Ash 
 
 * Basic administration configuration block for other modules to add sections and fields to.
 * Removes the loading of some admin layout blocks to clean up the interface.
+* Removes customer account links based on configuration.
 * Helper methods for common object CRUD operations
 
 ## Installation

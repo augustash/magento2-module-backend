@@ -9,6 +9,8 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="report" remove="true" />
+        <referenceContainer name="legal.copyright" remove="true" />
         <referenceContainer name="legal.system" htmlClass="footer-legal-system col-m-12">
             <referenceBlock name="version">
                 <action method="setTemplate">
@@ -16,7 +18,5 @@
                 </action>
             </referenceBlock>
         </referenceContainer>
-        <referenceContainer name="legal.copyright" remove="true" />
-        <referenceContainer name="report" remove="true" />
     </body>
 </page>

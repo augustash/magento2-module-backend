@@ -11,9 +11,17 @@
     <default>
         <design>
             <head>
-                <default_title>Magento August Ash Edition</default_title>
-                <default_keywords>Magento, E-commerce, Growth</default_keywords>
+                <default_title>Online Commerce</default_title>
             </head>
         </design>
+        <dev>
+            <js>
+                <merge_files>0</merge_files>
+                <minify_files>0</minify_files>
+            </js>
+            <css>
+                <minify_files>0</minify_files>
+            </css>
+        </dev>
     </default>
 </config>

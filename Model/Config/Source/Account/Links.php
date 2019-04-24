@@ -46,7 +46,7 @@ class Links implements ArrayInterface
                 $links = array_merge($links, $this->getEnterpriseLinks());
                 break;
             case 'B2B':
-                $links = array_merge($links, $this->getB2bLinks());
+                $links = array_merge($links, $this->getEnterpriseLinks(), $this->getB2bLinks());
                 break;
         }
         return $links;

@@ -20,6 +20,7 @@ interface ConfigInterface
      */
     const XML_PATH_HIDDEN_LINKS = 'ash/general/hidden_links';
     const XML_PATH_COMPARE_ENABLED = 'ash/general/disable_compare_enabled';
+    const XML_PATH_REVIEW_ENABLED = 'ash/general/disable_review_enabled';
 
     /**
      * Retrieves the module's config value for specified field.
@@ -46,5 +47,13 @@ interface ConfigInterface
      * @param int|string|\Magento\Store\Model\Store $store
      * @return bool
      */
-    public function isDisableCompare($store = null);
+    public function isDisableCompare($scope, $scopeCode);
+
+    /**
+     * Retrieves the module's product review enabled status.
+     *
+     * @param int|string|\Magento\Store\Model\Store $store
+     * @return bool
+     */
+    public function isDisableReview($scope, $scopeCode);
 }

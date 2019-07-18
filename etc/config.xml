@@ -12,6 +12,7 @@
         <ash>
             <general>
                 <disable_compare_enable>1</disable_compare_enable>
+                <disable_review_enable>1</disable_review_enable>
             </general>
         </ash>
         <design>

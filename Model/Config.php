@@ -76,4 +76,17 @@ class Config implements ConfigInterface
             $scopeCode
         );
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isDisableReview($scope = ScopeInterface::SCOPE_STORE, $scopeCode = null)
+    {
+        return (bool) $this->scopeConfig->getValue(
+            self::XML_PATH_REVIEW_ENABLED,
+            ScopeInterface::SCOPE_STORE,
+            $scope,
+            $scopeCode
+        );
+    }
 }

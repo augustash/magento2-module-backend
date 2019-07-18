@@ -44,14 +44,20 @@ class LayoutLoadBefore implements ObserverInterface
      */
     public function execute(EventObserver $observer)
     {
-        if (!$this->config->isDisableCompare()) {
-            return;
+        if ($this->config->isDisableCompare()) {
+            /** @var \Magento\Framework\View\LayoutInterface $layout */
+            $layout = $observer->getData('layout');
+            $layout
+                ->getUpdate()
+                ->addHandle('remove_product_compare');
         }
 
-        /** @var \Magento\Framework\View\LayoutInterface $layout */
-        $layout = $observer->getData('layout');
-        $layout
-            ->getUpdate()
-            ->addHandle('remove_product_compare');
+        if ($this->config->isDisableReview()) {
+            /** @var \Magento\Framework\View\LayoutInterface $layout */
+            $layout = $observer->getData('layout');
+            $layout
+                ->getUpdate()
+                ->addHandle('remove_product_reviews');
+        }
     }
 }

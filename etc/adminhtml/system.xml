@@ -18,20 +18,20 @@
             <resource>Augustash_Backend::ash_config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Settings</label>
+                <field id="disable_compare_enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Disable Compare</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="disable_review_enabled" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Disable Reviews</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
                 <field id="hidden_links" translate="label comment" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Hide Customer Links</label>
                     <source_model>Augustash\Backend\Model\Config\Source\Account\Links</source_model>
                     <comment>
                         <![CDATA[The selected links will be hidden from the customer account navigation menu.]]>
                     </comment>
-                </field>
-                <field id="disable_compare_enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
-                    <label>Disable Compare</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="disable_review_enabled" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
-                    <label>Disable Reviews</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
         </section>

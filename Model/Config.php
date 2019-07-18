@@ -63,4 +63,17 @@ class Config implements ConfigInterface
 
         return explode(',', $links);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isDisableCompare($scope = ScopeInterface::SCOPE_STORE, $scopeCode = null)
+    {
+        return (bool) $this->scopeConfig->getValue(
+            self::XML_PATH_COMPARE_ENABLED,
+            ScopeInterface::SCOPE_STORE,
+            $scope,
+            $scopeCode
+        );
+    }
 }

@@ -19,6 +19,7 @@ interface ConfigInterface
      * Configuration constants.
      */
     const XML_PATH_HIDDEN_LINKS = 'ash/general/hidden_links';
+    const XML_PATH_COMPARE_ENABLED = 'ash/general/disable_compare_enabled';
 
     /**
      * Retrieves the module's config value for specified field.
@@ -38,4 +39,12 @@ interface ConfigInterface
      * @return array
      */
     public function getHiddenLinks($scope, $scopeCode);
+
+    /**
+     * Retrieves the module's product compare enabled status.
+     *
+     * @param int|string|\Magento\Store\Model\Store $store
+     * @return bool
+     */
+    public function isDisableCompare($store = null);
 }

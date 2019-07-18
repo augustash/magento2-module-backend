@@ -25,6 +25,10 @@
                         <![CDATA[The selected links will be hidden from the customer account navigation menu.]]>
                     </comment>
                 </field>
+                <field id="disable_compare_enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Disable Compare</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
             </group>
         </section>
     </system>

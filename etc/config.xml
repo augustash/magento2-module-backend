@@ -9,6 +9,11 @@
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
+        <ash>
+            <general>
+                <disable_compare_enable>1</disable_compare_enable>
+            </general>
+        </ash>
         <design>
             <head>
                 <default_title>Online Commerce</default_title>

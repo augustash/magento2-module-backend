@@ -1,10 +1,12 @@
 <?php
+
 /**
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2019 August Ash, Inc.
+ * @copyright Copyright (c) 2019 August Ash (https://www.augustash.com)
  */
+
 namespace Augustash\Backend\Model;
 
 use Augustash\Backend\Api\ConfigInterface;
@@ -37,24 +39,26 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigValue($field, $store = null)
+    public function getConfigValue($field, $scope = ScopeInterface::SCOPE_STORE, $scopeCode = null)
     {
         return $this->scopeConfig->getValue(
             $field,
             ScopeInterface::SCOPE_STORE,
-            $store
+            $scope,
+            $scopeCode
         );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getHiddenLinks($store = null)
+    public function getHiddenLinks($scope = ScopeInterface::SCOPE_STORE, $scopeCode = null)
     {
         $links = $this->scopeConfig->getValue(
             self::XML_PATH_HIDDEN_LINKS,
             ScopeInterface::SCOPE_STORE,
-            $store
+            $scope,
+            $scopeCode
         );
 
         return explode(',', $links);

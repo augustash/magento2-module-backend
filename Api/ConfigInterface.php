@@ -1,10 +1,12 @@
 <?php
+
 /**
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2019 August Ash, Inc.
+ * @copyright Copyright (c) 2019 August Ash (https://www.augustash.com)
  */
+
 namespace Augustash\Backend\Api;
 
 /**
@@ -22,16 +24,18 @@ interface ConfigInterface
      * Retrieves the module's config value for specified field.
      *
      * @param string $field
-     * @param int|string|\Magento\Store\Model\Store $store
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
      * @return mixed
      */
-    public function getConfigValue($field, $store = null);
+    public function getConfigValue($field, $scope, $scopeCode);
 
     /**
      * Retrieves the list of links to hide.
      *
-     * @param int|string|\Magento\Store\Model\Store $store
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
      * @return array
      */
-    public function getHiddenLinks($store = null);
+    public function getHiddenLinks($scope, $scopeCode);
 }

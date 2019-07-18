@@ -1,10 +1,12 @@
 <?php
+
 /**
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2019 August Ash, Inc.
+ * @copyright Copyright (c) 2019 August Ash (https://www.augustash.com)
  */
+
 namespace Augustash\Backend\Helper;
 
 use Magento\Cms\Api\BlockRepositoryInterface;

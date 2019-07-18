@@ -23,7 +23,7 @@ Install the extension files directly into the project source:
 
 ```bash
 mkdir -p app/code/Augustash/Backend/
-git archive --format=tar --remote=git@github.com:augustash/magento2-module-backend.git 2.1.1 | tar xf - -C app/code/Augustash/Backend/
+curl -Ss https://github.com/augustash/magento2-module-backend/archive/2.1.1.tar.gz | tar xf - --strip 1 -C app/code/Augustash/Backend/
 bin/magento module:enable --clear-static-content Augustash_Backend
 bin/magento setup:upgrade
 bin/magento cache:flush

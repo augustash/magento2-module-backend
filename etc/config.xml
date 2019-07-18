@@ -4,11 +4,17 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2019 August Ash, Inc.
+ * @copyright Copyright (c) 2019 August Ash (https://www.augustash.com)
  */
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
+        <ash>
+            <general>
+                <disable_compare_enable>1</disable_compare_enable>
+                <disable_review_enable>1</disable_review_enable>
+            </general>
+        </ash>
         <design>
             <head>
                 <default_title>Online Commerce</default_title>

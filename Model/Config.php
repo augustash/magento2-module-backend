@@ -39,11 +39,10 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigValue($field, $scope = ScopeInterface::SCOPE_STORE, $scopeCode = null)
+    public function getConfigValue($field, $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
     {
         return $this->scopeConfig->getValue(
             $field,
-            ScopeInterface::SCOPE_STORE,
             $scope,
             $scopeCode
         );
@@ -52,11 +51,10 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function getHiddenLinks($scope = ScopeInterface::SCOPE_STORE, $scopeCode = null)
+    public function getHiddenLinks($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
     {
         $links = $this->scopeConfig->getValue(
             self::XML_PATH_HIDDEN_LINKS,
-            ScopeInterface::SCOPE_STORE,
             $scope,
             $scopeCode
         );
@@ -67,11 +65,10 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function isDisableCompare($scope = ScopeInterface::SCOPE_STORE, $scopeCode = null)
+    public function isDisableCompare($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
     {
         return (bool) $this->scopeConfig->getValue(
             self::XML_PATH_COMPARE_ENABLED,
-            ScopeInterface::SCOPE_STORE,
             $scope,
             $scopeCode
         );
@@ -80,11 +77,10 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function isDisableReview($scope = ScopeInterface::SCOPE_STORE, $scopeCode = null)
+    public function isDisableReview($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
     {
         return (bool) $this->scopeConfig->getValue(
             self::XML_PATH_REVIEW_ENABLED,
-            ScopeInterface::SCOPE_STORE,
             $scope,
             $scopeCode
         );

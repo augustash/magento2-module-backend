@@ -9,6 +9,8 @@
 
 namespace Augustash\Backend\Api;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
+
 /**
  * Service interface responsible for exposing configuration options.
  * @api
@@ -30,7 +32,7 @@ interface ConfigInterface
      * @param null|string|\Magento\Store\Model\Store $scopeCode
      * @return mixed
      */
-    public function getConfigValue($field, $scope, $scopeCode);
+    public function getConfigValue($field, $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
 
     /**
      * Retrieves the list of links to hide.
@@ -39,7 +41,7 @@ interface ConfigInterface
      * @param null|string|\Magento\Store\Model\Store $scopeCode
      * @return array
      */
-    public function getHiddenLinks($scope, $scopeCode);
+    public function getHiddenLinks($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
 
     /**
      * Retrieves the module's product compare enabled status.
@@ -47,7 +49,7 @@ interface ConfigInterface
      * @param int|string|\Magento\Store\Model\Store $store
      * @return bool
      */
-    public function isDisableCompare($scope, $scopeCode);
+    public function isDisableCompare($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
 
     /**
      * Retrieves the module's product review enabled status.
@@ -55,5 +57,5 @@ interface ConfigInterface
      * @param int|string|\Magento\Store\Model\Store $store
      * @return bool
      */
-    public function isDisableReview($scope, $scopeCode);
+    public function isDisableReview($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
 }

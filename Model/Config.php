@@ -65,6 +65,18 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
+    public function isDisableKeywords($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
+    {
+        return (bool) $this->scopeConfig->getValue(
+            self::XML_PATH_KEYWORDS_ENABLED,
+            $scope,
+            $scopeCode
+        );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function isDisableCompare($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
     {
         return (bool) $this->scopeConfig->getValue(

@@ -21,6 +21,7 @@ interface ConfigInterface
      * Configuration constants.
      */
     const XML_PATH_HIDDEN_LINKS = 'ash/general/hidden_links';
+    const XML_PATH_KEYWORDS_ENABLED = 'ash/general/disable_keywords_enabled';
     const XML_PATH_COMPARE_ENABLED = 'ash/general/disable_compare_enabled';
     const XML_PATH_REVIEW_ENABLED = 'ash/general/disable_review_enabled';
 
@@ -42,6 +43,14 @@ interface ConfigInterface
      * @return array
      */
     public function getHiddenLinks($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
+
+    /**
+     * Retrieves the module's meta keywords enabled status.
+     *
+     * @param int|string|\Magento\Store\Model\Store $store
+     * @return bool
+     */
+    public function isDisableKeywords($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
 
     /**
      * Retrieves the module's product compare enabled status.

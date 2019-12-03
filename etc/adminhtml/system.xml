@@ -9,8 +9,8 @@
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="augustash" sortOrder="0">
-            <label><![CDATA[<span><img src="https://augustash.s3.amazonaws.com/logos/ash-inline-color-100.png" alt="August Ash" /></span>]]></label>
+        <tab id="augustash" sortOrder="0" class="augustash-tab">
+            <label>August Ash Extensions</label>
         </tab>
         <section id="ash" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
             <tab>augustash</tab>

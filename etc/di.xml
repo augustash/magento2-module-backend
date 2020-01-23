@@ -15,4 +15,11 @@
     <type name="Magento\Framework\View\Page\Config">
         <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\RemoveMetaKeywords" sortOrder="10"/>
     </type>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="message-queue-put-poison-pill" xsi:type="object">Augustash\Backend\Console\Command\PutPoisonPill</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

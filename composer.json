@@ -2,7 +2,7 @@
     "name": "augustash/module-backend",
     "description": "The core module for August Ash Magento 2 projects.",
     "type": "magento2-module",
-    "version": "2.3.4",
+    "version": "2.4.0",
     "license": [
         "proprietary"
     ],
@@ -10,8 +10,9 @@
         "sort-packages": true
     },
     "require": {
+        "magento/framework": "*",
         "magento/module-backend": "*",
-        "magento/framework": "*"
+        "magento/module-message-queue": ">=100.3.2"
     },
     "autoload": {
         "files": [

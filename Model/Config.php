@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2019 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Model;
@@ -39,8 +39,11 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigValue($field, $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
-    {
+    public function getConfigValue(
+        $field,
+        $scope = ScopeInterface::SCOPE_STORE,
+        $scopeCode = null
+    ) {
         return $this->scopeConfig->getValue(
             $field,
             $scope,
@@ -51,8 +54,10 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function getHiddenLinks($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
-    {
+    public function getHiddenLinks(
+        $scope = ScopeInterface::SCOPE_STORE,
+        $scopeCode = null
+    ): array {
         $links = $this->scopeConfig->getValue(
             self::XML_PATH_HIDDEN_LINKS,
             $scope,
@@ -65,8 +70,10 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function isDisableKeywords($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
-    {
+    public function isDisableKeywords(
+        $scope = ScopeInterface::SCOPE_STORE,
+        $scopeCode = null
+    ): bool {
         return (bool) $this->scopeConfig->getValue(
             self::XML_PATH_KEYWORDS_ENABLED,
             $scope,
@@ -77,8 +84,10 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function isDisableCompare($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
-    {
+    public function isDisableCompare(
+        $scope = ScopeInterface::SCOPE_STORE,
+        $scopeCode = null
+    ): bool {
         return (bool) $this->scopeConfig->getValue(
             self::XML_PATH_COMPARE_ENABLED,
             $scope,
@@ -89,8 +98,10 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function isDisableReview($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null)
-    {
+    public function isDisableReview(
+        $scope = ScopeInterface::SCOPE_STORE,
+        $scopeCode = null
+    ): bool {
         return (bool) $this->scopeConfig->getValue(
             self::XML_PATH_REVIEW_ENABLED,
             $scope,

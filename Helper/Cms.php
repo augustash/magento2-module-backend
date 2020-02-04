@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2019 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Helper;
@@ -93,7 +93,7 @@ class Cms extends AbstractHelper
      * @param string $identifier
      * @return \Magento\Cms\Api\Data\BlockInterface
      */
-    public function getCmsBlockByIdentifier($identifier)
+    public function getCmsBlockByIdentifier($identifier): BlockInterface
     {
         $matches[] = $this->filterBuilder
             ->setField($identifier)
@@ -128,7 +128,7 @@ class Cms extends AbstractHelper
      * @param string $identifier
      * @return \Magento\Cms\Api\Data\PageInterface
      */
-    public function getCmsPageByIdentifier($identifier)
+    public function getCmsPageByIdentifier($identifier): PageInterface
     {
         $matches[] = $this->filterBuilder
             ->setField($identifier)
@@ -165,7 +165,7 @@ class Cms extends AbstractHelper
      * @return \Magento\Cms\Api\Data\BlockInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function saveCmsBlock($identifier, $data = [])
+    public function saveCmsBlock($identifier, $data = []): BlockInterface
     {
         $cmsBlock = $this->getCmsBlockByIdentifier($identifier);
         if (!$cmsBlock->getId()) {
@@ -204,7 +204,7 @@ class Cms extends AbstractHelper
      * @return \Magento\Cms\Api\Data\PageInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function saveCmsPage($identifier, $data = [])
+    public function saveCmsPage($identifier, $data = []): PageInterface
     {
         $cmsPage = $this->getCmsPageByIdentifier($identifier);
         if (!$cmsPage->getId()) {
@@ -254,8 +254,13 @@ class Cms extends AbstractHelper
      * @return \Magento\Cms\Api\Data\BlockInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function createCmsBlock($identifier, $title, $content, $active, $stores = [0])
-    {
+    public function createCmsBlock(
+        $identifier,
+        $title,
+        $content,
+        $active,
+        $stores = [0]
+    ): BlockInterface {
         return $this->saveCmsBlock($identifier, [
             'title' => $title,
             'content' => $content,
@@ -277,8 +282,15 @@ class Cms extends AbstractHelper
      * @return \Magento\Cms\Api\Data\PageInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function createCmsPage($identifier, $title, $content, $active, $contentHeading = '', $layout = '1column', $stores = [0])
-    {
+    public function createCmsPage(
+        $identifier,
+        $title,
+        $content,
+        $active,
+        $contentHeading = '',
+        $layout = '1column',
+        $stores = [0]
+    ): PageInterface {
         return $this->saveCmsPage($identifier, [
             'title' => $title,
             'content' => $content,
@@ -297,7 +309,7 @@ class Cms extends AbstractHelper
      * @return \Magento\Cms\Api\Data\BlockInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function updateCmsBlock($identifier, $data = [])
+    public function updateCmsBlock($identifier, $data = []): BlockInterface
     {
         return $this->saveCmsBlock($identifier, $data);
     }
@@ -310,7 +322,7 @@ class Cms extends AbstractHelper
      * @return \Magento\Cms\Api\Data\PageInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function updateCmsPage($identifier, $data = [])
+    public function updateCmsPage($identifier, $data = []): PageInterface
     {
         return $this->saveCmsPage($identifier, $data);
     }

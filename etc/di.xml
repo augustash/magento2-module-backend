@@ -4,17 +4,20 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2019 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Augustash\Backend\Api\ConfigInterface" type="Augustash\Backend\Model\Config"/>
+
     <type name="Magento\Framework\View\Element\Html\Link\Current">
-        <plugin name="augustash_account_hidden_links" type="Augustash\Backend\Plugin\HideAccountLinks" sortOrder="10"/>
+        <plugin name="augustash_account_hidden_links" type="Augustash\Backend\Plugin\HideAccountLinks" sortOrder="10" disabled="false"/>
     </type>
+
     <type name="Magento\Framework\View\Page\Config">
-        <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\RemoveMetaKeywords" sortOrder="10"/>
+        <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\RemoveMetaKeywords" sortOrder="10" disabled="false"/>
     </type>
+
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">

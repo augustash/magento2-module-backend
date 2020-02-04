@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2019 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Api;
@@ -33,7 +33,11 @@ interface ConfigInterface
      * @param null|string|\Magento\Store\Model\Store $scopeCode
      * @return mixed
      */
-    public function getConfigValue($field, $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
+    public function getConfigValue(
+        $field,
+        $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
+        $scopeCode = null
+    );
 
     /**
      * Retrieves the list of links to hide.
@@ -42,7 +46,10 @@ interface ConfigInterface
      * @param null|string|\Magento\Store\Model\Store $scopeCode
      * @return array
      */
-    public function getHiddenLinks($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
+    public function getHiddenLinks(
+        $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
+        $scopeCode = null
+    ): array;
 
     /**
      * Retrieves the module's meta keywords enabled status.
@@ -50,7 +57,10 @@ interface ConfigInterface
      * @param int|string|\Magento\Store\Model\Store $store
      * @return bool
      */
-    public function isDisableKeywords($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
+    public function isDisableKeywords(
+        $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
+        $scopeCode = null
+    ): bool;
 
     /**
      * Retrieves the module's product compare enabled status.
@@ -58,7 +68,10 @@ interface ConfigInterface
      * @param int|string|\Magento\Store\Model\Store $store
      * @return bool
      */
-    public function isDisableCompare($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
+    public function isDisableCompare(
+        $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
+        $scopeCode = null
+    ): bool;
 
     /**
      * Retrieves the module's product review enabled status.
@@ -66,5 +79,8 @@ interface ConfigInterface
      * @param int|string|\Magento\Store\Model\Store $store
      * @return bool
      */
-    public function isDisableReview($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeCode = null);
+    public function isDisableReview(
+        $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
+        $scopeCode = null
+    ): bool;
 }

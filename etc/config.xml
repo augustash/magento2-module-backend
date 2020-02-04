@@ -11,23 +11,10 @@
     <default>
         <ash>
             <general>
-                <disable_compare_enable>1</disable_compare_enable>
-                <disable_review_enable>1</disable_review_enable>
+                <disable_compare_enable>0</disable_compare_enable>
+                <disable_keywords_enabled>1</disable_keywords_enabled>
+                <disable_review_enable>0</disable_review_enable>
             </general>
         </ash>
-        <design>
-            <head>
-                <default_title>Online Commerce</default_title>
-            </head>
-        </design>
-        <dev>
-            <js>
-                <merge_files>0</merge_files>
-                <minify_files>0</minify_files>
-            </js>
-            <css>
-                <minify_files>0</minify_files>
-            </css>
-        </dev>
     </default>
 </config>

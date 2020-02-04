@@ -11,7 +11,9 @@ The `Augustash_Backend` module is our base structural module for all August Ash 
 * Basic administration configuration block for other modules to add sections and fields to.
 * Removes the loading of some admin layout blocks to clean up the interface.
 * Removes customer account links based on configuration.
-* Helper methods for common object CRUD operations
+* Removes reviews/compare based on configuration.
+* Helper methods for common object CRUD operations and data patches.
+* CLI command for poisoning message queue consumers.
 
 ## Installation
 
@@ -23,7 +25,7 @@ Install the extension files directly into the project source:
 
 ```bash
 mkdir -p app/code/Augustash/Backend/
-curl -Ss https://github.com/augustash/magento2-module-backend/archive/2.4.0.tar.gz | tar xf - --strip 1 -C app/code/Augustash/Backend/
+curl -Ss https://github.com/augustash/magento2-module-backend/archive/2.4.1.tar.gz | tar xf - --strip 1 -C app/code/Augustash/Backend/
 bin/magento module:enable --clear-static-content Augustash_Backend
 bin/magento setup:upgrade
 bin/magento cache:flush
@@ -35,7 +37,7 @@ Install the extension using Composer using our development package repository:
 
 ```bash
 composer config repositories.augustash composer https://packages.augustash.com/repo/private
-composer require augustash/module-backend:~2.4.0
+composer require augustash/module-backend:~2.4.1
 bin/magento module:enable --clear-static-content Augustash_Backend
 bin/magento setup:upgrade
 bin/magento cache:flush

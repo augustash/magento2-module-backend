@@ -5,3 +5,7 @@
 "Disable Compare,"Disable Compare"
 "Disable Meta Keywords","Disable Meta Keywords"
 "The selected links will be hidden from the customer account navigation menu.","The selected links will be hidden from the customer account navigation menu."
+"Reindex","Reindex"
+"Please select indexers","Please select indexers"
+"%1 indexer(s) have been rebuilt successfully in %2 seconds","%1 indexer(s) have been rebuilt successfully in %2 seconds"
+"Couldn't reindex because of an error.","Couldn't reindex because of an error."

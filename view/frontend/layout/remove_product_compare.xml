@@ -17,6 +17,5 @@
         <referenceBlock name="related.product.addto.compare" remove="true" />
         <referenceBlock name="upsell.product.addto.compare" remove="true" />
         <referenceBlock name="view.addto.compare" remove="true" />
-        <referenceBlock name="view.addto.wishlist" remove="true" />
     </body>
 </page>

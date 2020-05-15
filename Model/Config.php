@@ -41,7 +41,7 @@ class Config implements ConfigInterface
      */
     public function getConfigValue(
         $field,
-        $scope = ScopeInterface::SCOPE_STORE,
+        $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ) {
         return $this->scopeConfig->getValue(
@@ -55,7 +55,7 @@ class Config implements ConfigInterface
      * {@inheritdoc}
      */
     public function getHiddenLinks(
-        $scope = ScopeInterface::SCOPE_STORE,
+        $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): array {
         $links = $this->scopeConfig->getValue(
@@ -71,7 +71,7 @@ class Config implements ConfigInterface
      * {@inheritdoc}
      */
     public function isDisableKeywords(
-        $scope = ScopeInterface::SCOPE_STORE,
+        $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -85,7 +85,7 @@ class Config implements ConfigInterface
      * {@inheritdoc}
      */
     public function isDisableCompare(
-        $scope = ScopeInterface::SCOPE_STORE,
+        $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -99,7 +99,7 @@ class Config implements ConfigInterface
      * {@inheritdoc}
      */
     public function isDisableReview(
-        $scope = ScopeInterface::SCOPE_STORE,
+        $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(

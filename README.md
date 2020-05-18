@@ -25,7 +25,7 @@ Install the extension files directly into the project source:
 
 ```bash
 mkdir -p app/code/Augustash/Backend/
-curl -Ss https://github.com/augustash/magento2-module-backend/archive/2.4.3.tar.gz | tar xf - --strip 1 -C app/code/Augustash/Backend/
+curl -Ss https://github.com/augustash/magento2-module-backend/archive/2.5.0.tar.gz | tar xf - --strip 1 -C app/code/Augustash/Backend/
 bin/magento module:enable --clear-static-content Augustash_Backend
 bin/magento setup:upgrade
 bin/magento cache:flush
@@ -37,7 +37,7 @@ Install the extension using Composer using our development package repository:
 
 ```bash
 composer config repositories.augustash composer https://packages.augustash.com/repo/private
-composer require augustash/module-backend:~2.4.3
+composer require augustash/module-backend:~2.5.0
 bin/magento module:enable --clear-static-content Augustash_Backend
 bin/magento setup:upgrade
 bin/magento cache:flush

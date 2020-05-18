@@ -12,6 +12,7 @@ namespace Augustash\Backend\Model;
 use Augustash\Backend\Api\ConfigInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Configuration class.
@@ -24,16 +25,33 @@ class Config implements ConfigInterface
     protected $scopeConfig;
 
     /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    protected $storeManager;
+
+    /**
      * Constructor.
      *
      * Initialize class dependencies.
      *
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        StoreManagerInterface $storeManager
+
     ) {
         $this->scopeConfig = $scopeConfig;
+        $this->storeManager = $storeManager;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStoreManager(): StoreManagerInterface
+    {
+        return $this->storeManager;
     }
 
     /**
@@ -44,11 +62,15 @@ class Config implements ConfigInterface
         $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ) {
-        return $this->scopeConfig->getValue(
-            $field,
-            $scope,
-            $scopeCode
-        );
+        if (in_array($scope, [ScopeInterface::SCOPE_STORE, ScopeInterface::SCOPE_STORES]) && is_null($scopeCode)) {
+            $scopeCode = $this->getStoreManager()->getStore()->getCode();
+        }
+
+        if (in_array($scope, [ScopeInterface::SCOPE_WEBSITE, ScopeInterface::SCOPE_WEBSITES]) && is_null($scopeCode)) {
+            $scopeCode = $this->getStoreManager()->getWebsite()->getCode();
+        }
+
+        return $this->scopeConfig->getValue($field, $scope, $scopeCode);
     }
 
     /**
@@ -107,5 +129,25 @@ class Config implements ConfigInterface
             $scope,
             $scopeCode
         );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getGoogleSiteVerification(
+        $scope =  ScopeInterface::SCOPE_STORES,
+        $scopeCode = null
+    ): ?string {
+        return $this->getConfigValue(self::XML_PATH_SITE_VERIFICATION_GOOGLE, $scope, $scopeCode);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBingSiteVerification(
+        $scope =  ScopeInterface::SCOPE_STORES,
+        $scopeCode = null
+    ): ?string {
+        return $this->getConfigValue(self::XML_PATH_SITE_VERIFICATION_BING, $scope, $scopeCode);
     }
 }

@@ -2,7 +2,7 @@
     "name": "augustash/module-backend",
     "description": "The core module for August Ash Magento 2 projects.",
     "type": "magento2-module",
-    "version": "2.4.3",
+    "version": "2.5.0",
     "license": [
         "proprietary"
     ],

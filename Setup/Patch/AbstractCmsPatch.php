@@ -9,7 +9,8 @@
 
 namespace Augustash\Backend\Setup\Patch;
 
-use Augustash\Backend\Helper\Cms as CmsHelper;
+use Augustash\Backend\Helper\Entity\CmsBlock as BlockHelper;
+use Augustash\Backend\Helper\Entity\CmsPage as PageHelper;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Store\Model\StoreManager;
@@ -20,9 +21,14 @@ use Magento\Store\Model\StoreManager;
 abstract class AbstractCmsPatch implements DataPatchInterface
 {
     /**
-     * @var \Augustash\Backend\Helper\Cms
+     * @var \Augustash\Backend\Helper\Entity\CmsBlock
      */
-    protected $cmsHelper;
+    protected $cmsBlockHelper;
+
+    /**
+     * @var \Augustash\Backend\Helper\Entity\CmsPage
+     */
+    protected $cmsPageHelper;
 
     /**
      * @var \Magento\Framework\Setup\ModuleDataSetupInterface
@@ -40,16 +46,19 @@ abstract class AbstractCmsPatch implements DataPatchInterface
      * Initialize class dependencies.
      *
      * @param \Magento\Framework\Setup\ModuleDataSetupInterface $moduleDataSetup
-     * @param \Augustash\Backend\Helper\Cms $cmsHelper
+     * @param \Augustash\Backend\Helper\Entity\CmsBlock $blockHelper
+     * @param \Augustash\Backend\Helper\Entity\CmsPage $pageHelper
      * @param \Magento\Store\Model\StoreManager $storeManager
      */
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
-        CmsHelper $cmsHelper,
+        BlockHelper $blockHelper,
+        PageHelper $pageHelper,
         StoreManager $storeManager
     ) {
         $this->moduleDataSetup = $moduleDataSetup;
-        $this->cmsHelper = $cmsHelper;
+        $this->cmsBlockHelper = $blockHelper;
+        $this->cmsPageHelper = $pageHelper;
         $this->storeManager = $storeManager;
     }
 

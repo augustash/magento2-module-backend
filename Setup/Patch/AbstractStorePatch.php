@@ -9,7 +9,7 @@
 
 namespace Augustash\Backend\Setup\Patch;
 
-use Augustash\Backend\Helper\Store as StoreHelper;
+use Augustash\Backend\Helper\Entity\Store as StoreHelper;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 
@@ -24,7 +24,7 @@ abstract class AbstractStorePatch implements DataPatchInterface
     protected $moduleDataSetup;
 
     /**
-     * @var \Augustash\Backend\Helper\Store
+     * @var \Augustash\Backend\Helper\Entity\Store
      */
     protected $storeHelper;
 
@@ -34,7 +34,7 @@ abstract class AbstractStorePatch implements DataPatchInterface
      * Initialize class dependencies.
      *
      * @param \Magento\Framework\Setup\ModuleDataSetupInterface $moduleDataSetup
-     * @param \Augustash\Backend\Helper\Store $storeHelper
+     * @param \Augustash\Backend\Helper\Entity\Store $storeHelper
      */
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,

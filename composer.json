@@ -11,8 +11,7 @@
     },
     "require": {
         "magento/framework": "*",
-        "magento/module-backend": "*",
-        "magento/module-message-queue": ">=100.3.2"
+        "magento/module-backend": "*"
     },
     "autoload": {
         "files": [

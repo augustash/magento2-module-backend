@@ -13,7 +13,6 @@ The `Augustash_Backend` module is our base structural module for all August Ash 
 * Removes customer account links based on configuration.
 * Removes reviews/compare based on configuration.
 * Helper methods for common object CRUD operations and data patches.
-* CLI command for poisoning message queue consumers.
 
 ## Installation
 

@@ -7,15 +7,15 @@
  * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
  */
 
-namespace Augustash\Backend\Plugin;
+namespace Augustash\Backend\Plugin\View;
 
 use Augustash\Backend\Api\ConfigInterface;
-use Magento\Framework\View\Page\Config as Subject;
+use Magento\Framework\View\Page\Config as SubjectClass;
 
 /**
- * Remove meta keywords plugin class.
+ * Removes keywords plugin class.
  */
-class RemoveMetaKeywords
+class RemoveMetaKeywordsPlugin
 {
     /**
      * @var \Augustash\Backend\Api\ConfigInterface
@@ -42,9 +42,9 @@ class RemoveMetaKeywords
      * @param string $result
      * @return string
      */
-    public function afterGetKeywords(Subject $subject, $result)
+    public function afterGetKeywords(SubjectClass $subject, $result): string
     {
-        if ($this->config->isDisableKeywords()) {
+        if ($this->config->isDisableKeywords() || $result === null) {
             return '';
         }
 

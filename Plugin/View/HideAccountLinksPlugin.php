@@ -7,15 +7,15 @@
  * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
  */
 
-namespace Augustash\Backend\Plugin;
+namespace Augustash\Backend\Plugin\View;
 
 use Augustash\Backend\Api\ConfigInterface;
-use Magento\Framework\View\Element\Html\Link\Current as CurrentLink;
+use Magento\Framework\View\Element\Html\Link\Current as SubjectClass;
 
 /**
  * Hide customer account links plugin class.
  */
-class HideAccountLinks
+class HideAccountLinksPlugin
 {
     /**
      * @var \Augustash\Backend\Api\ConfigInterface
@@ -42,12 +42,14 @@ class HideAccountLinks
      * @param string $result
      * @return string
      */
-    public function afterToHtml(CurrentLink $subject, $result)
+    public function afterToHtml(SubjectClass $subject, $result): string
     {
         $hiddenLinks = $this->config->getHiddenLinks();
-        if (in_array($subject->getNameInLayout(), $hiddenLinks)) {
+
+        if (in_array($subject->getNameInLayout(), $hiddenLinks) || $result === null) {
             $result = '';
         }
+
         return $result;
     }
 }

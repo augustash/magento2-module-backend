@@ -11,10 +11,10 @@
     <preference for="Augustash\Backend\Api\ConfigInterface" type="Augustash\Backend\Model\Config"/>
 
     <type name="Magento\Framework\View\Element\Html\Link\Current">
-        <plugin name="augustash_account_hidden_links" type="Augustash\Backend\Plugin\HideAccountLinks" sortOrder="10" disabled="false"/>
+        <plugin name="augustash_hide_account_links" type="Augustash\Backend\Plugin\View\HideAccountLinksPlugin" sortOrder="10" disabled="false"/>
     </type>
 
     <type name="Magento\Framework\View\Page\Config">
-        <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\RemoveMetaKeywords" sortOrder="10" disabled="false"/>
+        <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\View\RemoveMetaKeywordsPlugin" sortOrder="10" disabled="false"/>
     </type>
 </config>

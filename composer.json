@@ -10,15 +10,15 @@
         "sort-packages": true
     },
     "require": {
-        "magento/framework": "*",
+        "magento/framework": ">= 101.0.0",
         "magento/module-backend": "*"
     },
     "autoload": {
         "files": [
-            "registration.php"
+            "src/registration.php"
         ],
         "psr-4": {
-            "Augustash\\Backend\\": ""
+            "Augustash\\Backend\\": "src/"
         }
     }
 }

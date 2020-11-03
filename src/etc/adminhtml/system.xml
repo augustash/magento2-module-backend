@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * August Ash Backend Module
+ *
+ * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="augustash" sortOrder="0" class="augustash-tab">
+            <label>August Ash Extensions</label>
+        </tab>
+        <section id="ash" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>augustash</tab>
+            <label>General</label>
+            <resource>Augustash_Backend::ash_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="disable_compare_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Disable Compare</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="disable_review_enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Disable Reviews</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="disable_keywords_enabled" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Disable Meta Keywords</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="hidden_links" translate="label comment" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Hide Customer Links</label>
+                    <source_model>Augustash\Backend\Model\Config\Source\Account\Links</source_model>
+                    <comment>
+                        <![CDATA[The selected links will be hidden from the customer account navigation menu.]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="site_verification" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Site Verifications</label>
+                <field id="google" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Google Site Verification</label>
+                    <comment>
+                        <![CDATA[Enter the verification code that will be used as a <code>meta</code> tag.]]>
+                    </comment>
+                </field>
+                <field id="bing" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Bing Site Verification</label>
+                    <comment>
+                        <![CDATA[Enter the verification code that will be used as a <code>meta</code> tag.]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

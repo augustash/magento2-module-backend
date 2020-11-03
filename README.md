@@ -13,31 +13,18 @@ The `Augustash_Backend` module is our base structural module for all August Ash 
 * Removes customer account links based on configuration.
 * Removes reviews/compare based on configuration.
 * Helper methods for common object CRUD operations and data patches.
-* CLI command for poisoning message queue consumers.
 
 ## Installation
 
 This module must be installed to use and to configure the other August Ash modules. It can be uninstalled after all other August Ash modules are uninstalled.
-
-### Via Local Module
-
-Install the extension files directly into the project source:
-
-```bash
-mkdir -p app/code/Augustash/Backend/
-curl -Ss https://github.com/augustash/magento2-module-backend/archive/2.5.0.tar.gz | tar xf - --strip 1 -C app/code/Augustash/Backend/
-bin/magento module:enable --clear-static-content Augustash_Backend
-bin/magento setup:upgrade
-bin/magento cache:flush
-```
 
 ### Via Composer
 
 Install the extension using Composer using our development package repository:
 
 ```bash
-composer config repositories.augustash composer https://packages.augustash.com/repo/private
-composer require augustash/module-backend:~2.5.0
+composer config repositories.augustash composer https://augustash.repo.repman.io
+composer require augustash/module-backend:~3.0.0
 bin/magento module:enable --clear-static-content Augustash_Backend
 bin/magento setup:upgrade
 bin/magento cache:flush

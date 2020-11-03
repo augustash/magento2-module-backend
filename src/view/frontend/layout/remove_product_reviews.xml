@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * August Ash Backend Module
+ *
+ * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true" />
+        <referenceBlock name="customers_review" remove="true" />
+        <referenceBlock name="product_review_list.toolbar" remove="true" />
+        <referenceBlock name="product.info.other" remove="true" />
+        <referenceBlock name="product.info.product_additional_data" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceBlock name="product.review.form" remove="true" />
+        <referenceBlock name="review_customer_list" remove="true" />
+        <referenceBlock name="review_view" remove="true" />
+        <referenceBlock name="reviews.tab" remove="true" />
+    </body>
+</page>

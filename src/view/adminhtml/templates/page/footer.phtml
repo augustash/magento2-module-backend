@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * August Ash Backend Module
+ *
+ * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ */
+
+/** @var \Magento\Backend\Block\Page\Footer $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<p class="magento-version">
+    <strong><?= $escaper->escapeHtml(__('Powered by Magento Open Source')) ?></strong>
+    <?= $escaper->escapeHtml(__('ver. %1', $block->getMagentoVersion())) ?>
+</p>

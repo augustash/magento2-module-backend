@@ -10,12 +10,12 @@
 namespace Augustash\Backend\Model\Config\Source\Account;
 
 use Magento\Framework\App\ProductMetadataInterface;
-use Magento\Framework\Option\ArrayInterface;
+use Magento\Framework\Data\OptionSourceInterface;
 
 /**
  * Customer account links source class.
  */
-class Links implements ArrayInterface
+class Links implements OptionSourceInterface
 {
     /**
      * @var \Magento\Framework\App\ProductMetadataInterface
@@ -36,19 +36,17 @@ class Links implements ArrayInterface
     }
 
     /**
-     * Options getter.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public function toOptionArray(): array
     {
         $links = $this->getOpenSourceLinks();
         switch ($this->productMetadata->getEdition()) {
             case 'Enterprise':
-                $links = array_merge($links, $this->getEnterpriseLinks());
+                $links = \array_merge($links, $this->getEnterpriseLinks());
                 break;
             case 'B2B':
-                $links = array_merge(
+                $links = \array_merge(
                     $links,
                     $this->getEnterpriseLinks(),
                     $this->getB2bLinks()

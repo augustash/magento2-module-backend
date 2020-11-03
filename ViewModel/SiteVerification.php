@@ -13,6 +13,9 @@ use Augustash\Backend\Api\ConfigInterface;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
+/**
+ * View model to inject site verification content.
+ */
 class SiteVerification implements ArgumentInterface
 {
     /**
@@ -21,7 +24,7 @@ class SiteVerification implements ArgumentInterface
     protected $config;
 
     /**
-     * Class constructor.
+     * Constructor.
      *
      * Initialize class dependencies.
      *
@@ -34,22 +37,30 @@ class SiteVerification implements ArgumentInterface
     }
 
     /**
-     * Return Google site verification code
+     * Retrieves the module's Google site verification code.
      *
+     * @param string $scope
+     * @param int|string|\Magento\Store\Model\Store $scopeCode
      * @return null|string
      */
-    public function getGoogleSiteVerification($scope = ScopeInterface::SCOPE_STORES, $scopeCode = null): ?string
-    {
+    public function getGoogleSiteVerification(
+        $scope = ScopeInterface::SCOPE_STORES,
+        $scopeCode = null
+    ): ?string {
         return $this->config->getGoogleSiteVerification($scope, $scopeCode);
     }
 
     /**
-     * Return Bing site verification code
+     * Retrieves the module's Bing site verification code.
      *
+     * @param string $scope
+     * @param int|string|\Magento\Store\Model\Store $scopeCode
      * @return null|string
      */
-    public function getBingSiteVerification($scope = ScopeInterface::SCOPE_STORES, $scopeCode = null): ?string
-    {
+    public function getBingSiteVerification(
+        $scope = ScopeInterface::SCOPE_STORES,
+        $scopeCode = null
+    ): ?string {
         return $this->config->getBingSiteVerification($scope, $scopeCode);
     }
 
@@ -68,7 +79,7 @@ class SiteVerification implements ArgumentInterface
      *
      * @return string
      */
-    public function getWebsitCode()
+    public function getWebsiteCode()
     {
         return $this->config->getStoreManager()->getWebsite()->getCode();
     }

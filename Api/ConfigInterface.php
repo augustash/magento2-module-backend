@@ -98,7 +98,7 @@ interface ConfigInterface
     ): bool;
 
     /**
-     * Retrieves the module's Google site verfication code
+     * Retrieves the module's Google site verification code.
      *
      * @param string $scope
      * @param int|string|\Magento\Store\Model\Store $scopeCode
@@ -110,7 +110,7 @@ interface ConfigInterface
     ): ?string;
 
     /**
-     * Retrieves the module's Bing site verfication code
+     * Retrieves the module's Bing site verification code.
      *
      * @param string $scope
      * @param int|string|\Magento\Store\Model\Store $scopeCode

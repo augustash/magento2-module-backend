@@ -46,7 +46,7 @@ class HideAccountLinksPlugin
     {
         $hiddenLinks = $this->config->getHiddenLinks();
 
-        if (in_array($subject->getNameInLayout(), $hiddenLinks) || $result === null) {
+        if (\in_array($subject->getNameInLayout(), $hiddenLinks) || $result === null) {
             $result = '';
         }
 

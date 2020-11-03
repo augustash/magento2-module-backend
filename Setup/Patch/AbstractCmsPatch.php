@@ -20,6 +20,11 @@ use Magento\Store\Model\StoreManager;
 abstract class AbstractCmsPatch implements DataPatchInterface
 {
     /**
+     * @var \Augustash\Backend\Helper\Cms
+     */
+    protected $cmsHelper;
+
+    /**
      * @var \Magento\Framework\Setup\ModuleDataSetupInterface
      */
     protected $moduleDataSetup;
@@ -30,27 +35,22 @@ abstract class AbstractCmsPatch implements DataPatchInterface
     protected $storeManager;
 
     /**
-     * @var \Augustash\Backend\Helper\Cms
-     */
-    protected $cmsHelper;
-
-    /**
      * Constructor.
      *
      * Initialize class dependencies.
      *
      * @param \Magento\Framework\Setup\ModuleDataSetupInterface $moduleDataSetup
-     * @param \Magento\Store\Model\StoreManager $storeManager
      * @param \Augustash\Backend\Helper\Cms $cmsHelper
+     * @param \Magento\Store\Model\StoreManager $storeManager
      */
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
-        StoreManager $storeManager,
-        CmsHelper $cmsHelper
+        CmsHelper $cmsHelper,
+        StoreManager $storeManager
     ) {
         $this->moduleDataSetup = $moduleDataSetup;
-        $this->storeManager = $storeManager;
         $this->cmsHelper = $cmsHelper;
+        $this->storeManager = $storeManager;
     }
 
     /**

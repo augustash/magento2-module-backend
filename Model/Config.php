@@ -61,11 +61,13 @@ class Config implements ConfigInterface
         $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ) {
-        if (in_array($scope, [ScopeInterface::SCOPE_STORE, ScopeInterface::SCOPE_STORES]) && is_null($scopeCode)) {
+        if (\in_array($scope, [ScopeInterface::SCOPE_STORE, ScopeInterface::SCOPE_STORES])
+            && $scopeCode === null) {
             $scopeCode = $this->getStoreManager()->getStore()->getCode();
         }
 
-        if (in_array($scope, [ScopeInterface::SCOPE_WEBSITE, ScopeInterface::SCOPE_WEBSITES]) && is_null($scopeCode)) {
+        if (\in_array($scope, [ScopeInterface::SCOPE_WEBSITE, ScopeInterface::SCOPE_WEBSITES])
+            && $scopeCode === null) {
             $scopeCode = $this->getStoreManager()->getWebsite()->getCode();
         }
 
@@ -85,7 +87,7 @@ class Config implements ConfigInterface
             $scopeCode
         );
 
-        return explode(',', $links);
+        return \explode(',', $links);
     }
 
     /**

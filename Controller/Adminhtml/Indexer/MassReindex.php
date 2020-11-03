@@ -35,8 +35,8 @@ class MassReindex extends Action
         Context $context,
         IndexerFactory $indexerFactory
     ) {
-        $this->indexerFactory = $indexerFactory;
         parent::__construct($context);
+        $this->indexerFactory = $indexerFactory;
     }
 
     /**
@@ -50,22 +50,22 @@ class MassReindex extends Action
 
         $indexerIds = $this->getRequest()->getParam('indexer_ids');
 
-        if (!is_array($indexerIds)) {
+        if (!\is_array($indexerIds)) {
             $this->messageManager->addErrorMessage(__('Please select indexers'));
             return $resultRedirect;
         }
 
         try {
-            $startTime = microtime(true);
+            $startTime = \microtime(true);
             foreach ($indexerIds as $indexerId) {
                 $indexer = $this->indexerFactory->create()
                     ->load($indexerId);
                 $indexer->reindexAll();
             }
-            $endTime = microtime(true) - $startTime;
+            $endTime = \microtime(true) - $startTime;
             $this->messageManager->addSuccessMessage(__(
                 '%1 indexer(s) have been rebuilt successfully in %2 seconds',
-                count($indexerIds),
+                \count($indexerIds),
                 \gmdate('s', $endTime)
             ));
         } catch (\Exception $e) {

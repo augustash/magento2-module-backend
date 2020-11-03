@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Model;
@@ -40,7 +40,6 @@ class Config implements ConfigInterface
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         StoreManagerInterface $storeManager
-
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->storeManager = $storeManager;
@@ -135,7 +134,7 @@ class Config implements ConfigInterface
      * {@inheritdoc}
      */
     public function getGoogleSiteVerification(
-        $scope =  ScopeInterface::SCOPE_STORES,
+        $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->getConfigValue(self::XML_PATH_SITE_VERIFICATION_GOOGLE, $scope, $scopeCode);
@@ -145,7 +144,7 @@ class Config implements ConfigInterface
      * {@inheritdoc}
      */
     public function getBingSiteVerification(
-        $scope =  ScopeInterface::SCOPE_STORES,
+        $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->getConfigValue(self::XML_PATH_SITE_VERIFICATION_BING, $scope, $scopeCode);

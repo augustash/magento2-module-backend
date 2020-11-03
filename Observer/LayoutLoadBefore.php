@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Observer;

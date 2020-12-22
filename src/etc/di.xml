@@ -17,4 +17,8 @@
     <type name="Magento\Framework\View\Page\Config">
         <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\View\RemoveMetaKeywordsPlugin" sortOrder="10" disabled="false"/>
     </type>
+
+    <type name="Magento\Catalog\Block\Product\Widget\NewWidget">
+        <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\Product\DisableCompareOnNewWidgetPlugin" sortOrder="10" disabled="false"/>
+    </type>
 </config>

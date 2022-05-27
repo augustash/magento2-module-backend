@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Model;
@@ -46,7 +46,9 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns a store manager object.
+     *
+     * @return \Magento\Store\Model\StoreManagerInterface
      */
     public function getStoreManager(): StoreManagerInterface
     {
@@ -54,20 +56,23 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's config value for specified field.
+     *
+     * @param string $field
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return mixed
      */
     public function getConfigValue(
-        $field,
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $field,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ) {
-        if (\in_array($scope, [ScopeInterface::SCOPE_STORE, ScopeInterface::SCOPE_STORES])
-            && $scopeCode === null) {
+        if (\in_array($scope, [ScopeInterface::SCOPE_STORE, ScopeInterface::SCOPE_STORES]) && $scopeCode === null) {
             $scopeCode = $this->getStoreManager()->getStore()->getCode();
         }
 
-        if (\in_array($scope, [ScopeInterface::SCOPE_WEBSITE, ScopeInterface::SCOPE_WEBSITES])
-            && $scopeCode === null) {
+        if (\in_array($scope, [ScopeInterface::SCOPE_WEBSITE, ScopeInterface::SCOPE_WEBSITES]) && $scopeCode === null) {
             $scopeCode = $this->getStoreManager()->getWebsite()->getCode();
         }
 
@@ -75,10 +80,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the list of links to hide.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return array
      */
     public function getHiddenLinks(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): array {
         $links = $this->scopeConfig->getValue(
@@ -91,10 +100,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's meta keywords enabled status.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return bool
      */
     public function isDisableKeywords(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -105,10 +118,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's product compare enabled status.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return bool
      */
     public function isDisableCompare(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -119,10 +136,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's product review enabled status.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return bool
      */
     public function isDisableReview(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -133,20 +154,28 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's Google site verification code.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return null|string
      */
     public function getGoogleSiteVerification(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->getConfigValue(self::XML_PATH_SITE_VERIFICATION_GOOGLE, $scope, $scopeCode);
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's Bing site verification code.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return null|string
      */
     public function getBingSiteVerification(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->getConfigValue(self::XML_PATH_SITE_VERIFICATION_BING, $scope, $scopeCode);

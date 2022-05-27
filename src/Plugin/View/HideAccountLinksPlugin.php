@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Plugin\View;
@@ -39,7 +39,7 @@ class HideAccountLinksPlugin
      * Remove link blocks that are supposed to be hidden.
      *
      * @param \Magento\Framework\View\Element\Html\Link\Current $subject
-     * @param string $result
+     * @param string|null $result
      * @return string
      */
     public function afterToHtml(SubjectClass $subject, $result): string
@@ -50,6 +50,6 @@ class HideAccountLinksPlugin
             $result = '';
         }
 
-        return $result;
+        return (string) $result;
     }
 }

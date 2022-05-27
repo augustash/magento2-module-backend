@@ -4,17 +4,17 @@
  * August Ash Backend Module
  *
  * @author    Josh Johnson <jjohnson@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
+
+use Magento\Store\Model\ScopeInterface;
 
 /** @var \Magento\Framework\View\Element\Template $block */
 /** @var \Magento\Framework\Escaper $escaper */
 /** @var \Augustash\Backend\ViewModel\SiteVerification $viewModel */
 $viewModel = $block->getSiteVerificationViewModel();
-$scope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
-$scopeCode = $viewModel->getStoreCode();
-$googleVerification = $viewModel->getGoogleSiteVerification($scope, $scopeCode);
-$bingVerification = $viewModel->getBingSiteVerification($scope, $scopeCode);
+$googleVerification = $viewModel->getGoogleSiteVerification(ScopeInterface::SCOPE_STORES, $viewModel->getStoreCode());
+$bingVerification = $viewModel->getBingSiteVerification(ScopeInterface::SCOPE_STORES, $viewModel->getStoreCode());
 ?>
 <?php if (!empty(\trim($googleVerification))): ?>
 <!-- BEGIN GOOGLE SITE VERIFICATION -->

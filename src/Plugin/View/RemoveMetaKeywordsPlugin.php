@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Plugin\View;
@@ -39,7 +39,7 @@ class RemoveMetaKeywordsPlugin
      * Return empty string to disable rendering of keywords.
      *
      * @param \Magento\Framework\View\Page\Config $subject
-     * @param string $result
+     * @param string|null $result
      * @return string
      */
     public function afterGetKeywords(SubjectClass $subject, $result): string
@@ -48,6 +48,6 @@ class RemoveMetaKeywordsPlugin
             return '';
         }
 
-        return $result;
+        return (string) $result;
     }
 }

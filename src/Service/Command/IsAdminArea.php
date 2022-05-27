@@ -4,17 +4,17 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
 
-namespace Augustash\Backend\Command;
+namespace Augustash\Backend\Service\Command;
 
 use Augustash\Backend\Api\Command\IsAdminAreaInterface;
 use Magento\Framework\App\Area;
 use Magento\Framework\App\State;
 
 /**
- * @inheritdoc
+ * Service command for admin area detection.
  */
 class IsAdminArea implements IsAdminAreaInterface
 {
@@ -37,7 +37,9 @@ class IsAdminArea implements IsAdminAreaInterface
     }
 
     /**
-     * @inheritdoc
+     * Detect if action is in admin area.
+     *
+     * @return bool
      */
     public function execute(): bool
     {

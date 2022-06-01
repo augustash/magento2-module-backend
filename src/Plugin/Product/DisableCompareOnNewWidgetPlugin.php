@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 202s August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Plugin\Product;
@@ -48,6 +48,6 @@ class DisableCompareOnNewWidgetPlugin
             return '';
         }
 
-        return $result;
+        return (string) $result;
     }
 }

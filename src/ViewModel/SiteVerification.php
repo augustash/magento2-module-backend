@@ -4,14 +4,14 @@
  * August Ash Backend Module
  *
  * @author    Josh Johnson <jjohnson@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\ViewModel;
 
 use Augustash\Backend\Api\ConfigInterface;
-use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * View model to inject site verification content.
@@ -40,11 +40,11 @@ class SiteVerification implements ArgumentInterface
      * Retrieves the module's Google site verification code.
      *
      * @param string $scope
-     * @param int|string|\Magento\Store\Model\Store $scopeCode
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
      * @return null|string
      */
     public function getGoogleSiteVerification(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->config->getGoogleSiteVerification($scope, $scopeCode);
@@ -54,11 +54,11 @@ class SiteVerification implements ArgumentInterface
      * Retrieves the module's Bing site verification code.
      *
      * @param string $scope
-     * @param int|string|\Magento\Store\Model\Store $scopeCode
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
      * @return null|string
      */
     public function getBingSiteVerification(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->config->getBingSiteVerification($scope, $scopeCode);
@@ -69,7 +69,7 @@ class SiteVerification implements ArgumentInterface
      *
      * @return string
      */
-    public function getStoreCode()
+    public function getStoreCode(): string
     {
         return $this->config->getStoreManager()->getStore()->getCode();
     }
@@ -79,7 +79,7 @@ class SiteVerification implements ArgumentInterface
      *
      * @return string
      */
-    public function getWebsiteCode()
+    public function getWebsiteCode(): string
     {
         return $this->config->getStoreManager()->getWebsite()->getCode();
     }

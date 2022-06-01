@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Observer;
@@ -42,7 +42,7 @@ class LayoutLoadBefore implements ObserverInterface
      * @param \Magento\Framework\Event\Observer $observer
      * @return void
      */
-    public function execute(EventObserver $observer)
+    public function execute(EventObserver $observer): void
     {
         if ($this->config->isDisableCompare()) {
             /** @var \Magento\Framework\View\LayoutInterface $layout */

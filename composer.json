@@ -1,24 +1,25 @@
 {
     "name": "augustash/module-backend",
     "description": "The core module for August Ash Magento 2 projects.",
-    "type": "magento2-module",
-    "version": "3.0.1",
     "license": [
         "proprietary"
     ],
-    "config": {
-        "sort-packages": true
-    },
+    "type": "magento2-module",
+    "version": "4.0.0",
     "require": {
-        "magento/framework": ">= 101.0.0",
+        "php": "~8.1.0",
+        "magento/framework": ">= 103.0.0",
         "magento/module-backend": "*"
     },
     "autoload": {
-        "files": [
-            "src/registration.php"
-        ],
         "psr-4": {
             "Augustash\\Backend\\": "src/"
-        }
+        },
+        "files": [
+            "src/registration.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true
     }
 }

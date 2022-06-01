@@ -4,24 +4,24 @@
  * August Ash Backend Module
  *
  * @author    Josh Johnson <jjohnson@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
+
+use Magento\Store\Model\ScopeInterface;
 
 /** @var \Magento\Framework\View\Element\Template $block */
 /** @var \Magento\Framework\Escaper $escaper */
 /** @var \Augustash\Backend\ViewModel\SiteVerification $viewModel */
 $viewModel = $block->getSiteVerificationViewModel();
-$scope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
-$scopeCode = $viewModel->getStoreCode();
-$googleVerification = $viewModel->getGoogleSiteVerification($scope, $scopeCode);
-$bingVerification = $viewModel->getBingSiteVerification($scope, $scopeCode);
+$googleVerification = $viewModel->getGoogleSiteVerification(ScopeInterface::SCOPE_STORES, $viewModel->getStoreCode());
+$bingVerification = $viewModel->getBingSiteVerification(ScopeInterface::SCOPE_STORES, $viewModel->getStoreCode());
 ?>
-<?php if (!empty(\trim($googleVerification))): ?>
+<?php if ($googleVerification !== null): ?>
 <!-- BEGIN GOOGLE SITE VERIFICATION -->
 <meta name="google-site-verification" content="<?= $escaper->escapeHtml(\trim($googleVerification)) ?>" />
 <!-- END GOOGLE SITE VERIFICATION -->
 <?php endif; ?>
-<?php if (!empty(trim($bingVerification))): ?>
+<?php if ($bingVerification !== null): ?>
 <!-- BEGIN BING SITE VERIFICATION -->
 <meta name="msvalidate.01" content="<?= $escaper->escapeHtml(\trim($bingVerification)) ?>" />
 <!-- END BING SITE VERIFICATION -->

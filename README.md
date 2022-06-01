@@ -12,7 +12,7 @@ The `Augustash_Backend` module is our base structural module for all August Ash 
 * Removes the loading of some admin layout blocks to clean up the interface.
 * Removes customer account links based on configuration.
 * Removes reviews/compare based on configuration.
-* Helper methods for common object CRUD operations and data patches.
+* Registry for the current product.
 
 ## Installation
 
@@ -24,7 +24,7 @@ Install the extension using Composer using our development package repository:
 
 ```bash
 composer config repositories.augustash composer https://augustash.repo.repman.io
-composer require augustash/module-backend:~3.0.1
+composer require augustash/module-backend:~4.0.0
 bin/magento module:enable --clear-static-content Augustash_Backend
 bin/magento setup:upgrade
 bin/magento cache:flush
@@ -44,4 +44,4 @@ bin/magento cache:flush
 
 ## Structure
 
-[Typical file structure for a Magento 2 module](http://devdocs.magento.com/guides/v2.3/extension-dev-guide/build/module-file-structure.html).
+[Typical file structure for a Magento 2 module](http://devdocs.magento.com/guides/v2.4/extension-dev-guide/build/module-file-structure.html).

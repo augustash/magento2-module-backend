@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
 
 namespace Augustash\Backend\Controller\Adminhtml\Indexer;
@@ -35,19 +35,21 @@ class MassReindex extends Action
         Context $context,
         IndexerFactory $indexerFactory
     ) {
-        parent::__construct($context);
         $this->indexerFactory = $indexerFactory;
+        parent::__construct($context);
     }
 
     /**
-     * {@inheritdoc}
+     * Execute action based on request and return result.
+     *
+     * @return \Magento\Framework\Controller\ResultInterface|ResponseInterface
+     * @throws \Magento\Framework\Exception\NotFoundException
      */
     public function execute()
     {
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $resultRedirect->setPath('*/*/list');
-
         $indexerIds = $this->getRequest()->getParam('indexer_ids');
 
         if (!\is_array($indexerIds)) {
@@ -58,8 +60,7 @@ class MassReindex extends Action
         try {
             $startTime = \microtime(true);
             foreach ($indexerIds as $indexerId) {
-                $indexer = $this->indexerFactory->create()
-                    ->load($indexerId);
+                $indexer = $this->indexerFactory->create()->load($indexerId);
                 $indexer->reindexAll();
             }
             $endTime = \microtime(true) - $startTime;
@@ -79,9 +80,11 @@ class MassReindex extends Action
     }
 
     /**
-     * {@inheritdoc}
+     * Determines whether current user is allowed to access Action.
+     *
+     * @return bool
      */
-    protected function _isAllowed()
+    protected function _isAllowed(): bool
     {
         if ($this->_request->getActionName() == 'massReindex') {
             return $this->_authorization->isAllowed('Magento_Indexer::changeMode');

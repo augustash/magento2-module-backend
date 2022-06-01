@@ -4,11 +4,11 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2020 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Augustash\Backend\Api\Command\IsAdminAreaInterface" type="Augustash\Backend\Command\IsAdminArea" />
+    <preference for="Augustash\Backend\Api\Command\IsAdminAreaInterface" type="Augustash\Backend\Service\Command\IsAdminArea" />
     <preference for="Augustash\Backend\Api\ConfigInterface" type="Augustash\Backend\Model\Config"/>
 
     <type name="Magento\Framework\View\Element\Html\Link\Current">

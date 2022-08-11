@@ -47,7 +47,8 @@ class SiteVerification implements ArgumentInterface
         string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
-        return $this->config->getGoogleSiteVerification($scope, $scopeCode);
+        $value = $this->config->getGoogleSiteVerification($scope, $scopeCode);
+        return $value ? \trim($value) : null;
     }
 
     /**
@@ -61,7 +62,8 @@ class SiteVerification implements ArgumentInterface
         string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
-        return $this->config->getBingSiteVerification($scope, $scopeCode);
+        $value = $this->config->getBingSiteVerification($scope, $scopeCode);
+        return $value ? \trim($value) : null;
     }
 
     /**

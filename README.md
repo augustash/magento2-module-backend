@@ -24,7 +24,7 @@ Install the extension using Composer using our development package repository:
 
 ```bash
 composer config repositories.augustash composer https://augustash.repo.repman.io
-composer require augustash/module-backend:~4.0.1
+composer require augustash/module-backend:~4.0.2
 bin/magento module:enable --clear-static-content Augustash_Backend
 bin/magento setup:upgrade
 bin/magento cache:flush

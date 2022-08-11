@@ -18,11 +18,11 @@ $bingVerification = $viewModel->getBingSiteVerification(ScopeInterface::SCOPE_ST
 ?>
 <?php if ($googleVerification !== null): ?>
 <!-- BEGIN GOOGLE SITE VERIFICATION -->
-<meta name="google-site-verification" content="<?= $escaper->escapeHtml(\trim($googleVerification)) ?>" />
+<meta name="google-site-verification" content="<?= $escaper->escapeHtml($googleVerification) ?>" />
 <!-- END GOOGLE SITE VERIFICATION -->
 <?php endif; ?>
 <?php if ($bingVerification !== null): ?>
 <!-- BEGIN BING SITE VERIFICATION -->
-<meta name="msvalidate.01" content="<?= $escaper->escapeHtml(\trim($bingVerification)) ?>" />
+<meta name="msvalidate.01" content="<?= $escaper->escapeHtml($bingVerification) ?>" />
 <!-- END BING SITE VERIFICATION -->
 <?php endif; ?>

@@ -14,6 +14,7 @@
                 <disable_compare_enable>0</disable_compare_enable>
                 <disable_keywords_enabled>1</disable_keywords_enabled>
                 <disable_review_enable>0</disable_review_enable>
+                <hidden_links>customer-account-navigation-billing-agreements-link,customer-account-navigation-downloadable-products-link</hidden_links>
             </general>
         </ash>
     </default>

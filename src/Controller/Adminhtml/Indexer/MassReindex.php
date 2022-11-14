@@ -63,11 +63,11 @@ class MassReindex extends Action
                 $indexer = $this->indexerFactory->create()->load($indexerId);
                 $indexer->reindexAll();
             }
-            $endTime = \microtime(true) - $startTime;
+            $duration = \microtime(true) - $startTime;
             $this->messageManager->addSuccessMessage(__(
                 '%1 indexer(s) have been rebuilt successfully in %2 seconds',
                 \count($indexerIds),
-                \gmdate('s', $endTime)
+                \sprintf('%0.2f', $duration)
             ));
         } catch (\Exception $e) {
             $this->messageManager->addExceptionMessage(

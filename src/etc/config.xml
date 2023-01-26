@@ -4,17 +4,14 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2023 August Ash, Inc. (https://www.augustash.com)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <ash>
             <general>
-                <disable_compare_enable>0</disable_compare_enable>
-                <disable_keywords_enabled>1</disable_keywords_enabled>
-                <disable_review_enable>0</disable_review_enable>
-                <hidden_links>customer-account-navigation-billing-agreements-link,customer-account-navigation-downloadable-products-link</hidden_links>
+                <hidden_account_links>customer-account-navigation-billing-agreements-link,customer-account-navigation-downloadable-products-link</hidden_account_links>
             </general>
         </ash>
     </default>

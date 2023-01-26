@@ -4,13 +4,13 @@
  * August Ash Backend Module
  *
  * @author    Josh Johnson <jjohnson@augustash.com>
- * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2023 August Ash, Inc. (https://www.augustash.com)
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="head.additional">
-            <block class="Magento\Framework\View\Element\Template" name="ash.site_verifications" template="Augustash_Backend::site_verifications.phtml">
+            <block class="Magento\Framework\View\Element\Template" name="augustash.site_verifications" template="Augustash_Backend::site_verifications.phtml">
                 <arguments>
                     <argument name="site_verification_view_model" xsi:type="object">Augustash\Backend\ViewModel\SiteVerification</argument>
                 </arguments>

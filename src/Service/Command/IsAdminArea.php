@@ -4,8 +4,10 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2023 August Ash, Inc. (https://www.augustash.com)
  */
+
+declare(strict_types=1);
 
 namespace Augustash\Backend\Service\Command;
 
@@ -13,16 +15,8 @@ use Augustash\Backend\Api\Command\IsAdminAreaInterface;
 use Magento\Framework\App\Area;
 use Magento\Framework\App\State;
 
-/**
- * Service command for admin area detection.
- */
 class IsAdminArea implements IsAdminAreaInterface
 {
-    /**
-     * @var \Magento\Framework\App\State
-     */
-    protected $appState;
-
     /**
      * Constructor.
      *
@@ -31,7 +25,7 @@ class IsAdminArea implements IsAdminAreaInterface
      * @param \Magento\Framework\App\State $appState
      */
     public function __construct(
-        State $appState
+        protected State $appState,
     ) {
         $this->appState = $appState;
     }

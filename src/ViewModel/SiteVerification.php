@@ -4,8 +4,10 @@
  * August Ash Backend Module
  *
  * @author    Josh Johnson <jjohnson@augustash.com>
- * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2023 August Ash, Inc. (https://www.augustash.com)
  */
+
+declare(strict_types=1);
 
 namespace Augustash\Backend\ViewModel;
 
@@ -13,16 +15,8 @@ use Augustash\Backend\Api\ConfigInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Store\Model\ScopeInterface;
 
-/**
- * View model to inject site verification content.
- */
 class SiteVerification implements ArgumentInterface
 {
-    /**
-     * @var \Augustash\Backend\Api\ConfigInterface
-     */
-    protected $config;
-
     /**
      * Constructor.
      *
@@ -31,58 +25,35 @@ class SiteVerification implements ArgumentInterface
      * @param \Augustash\Backend\Api\ConfigInterface $config
      */
     public function __construct(
-        ConfigInterface $config
+        protected ConfigInterface $config,
     ) {
-        $this->config = $config;
     }
 
     /**
-     * Retrieves the module's Google site verification code.
+     * Retrieves the store's Bing site verification code.
      *
      * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return null|string
-     */
-    public function getGoogleSiteVerification(
-        string $scope = ScopeInterface::SCOPE_STORES,
-        $scopeCode = null
-    ): ?string {
-        $value = $this->config->getGoogleSiteVerification($scope, $scopeCode);
-        return $value ? \trim($value) : null;
-    }
-
-    /**
-     * Retrieves the module's Bing site verification code.
-     *
-     * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return null|string
+     * @param string|int|null $scopeCode
+     * @return string|null
      */
     public function getBingSiteVerification(
         string $scope = ScopeInterface::SCOPE_STORES,
-        $scopeCode = null
+        string|int|null $scopeCode = null
     ): ?string {
-        $value = $this->config->getBingSiteVerification($scope, $scopeCode);
-        return $value ? \trim($value) : null;
+        return $this->config->getBingSiteVerification($scope, $scopeCode);
     }
 
     /**
-     * Return the current store's store code.
+     * Retrieves the store's Google site verification code.
      *
-     * @return string
+     * @param string $scope
+     * @param string|int|null $scopeCode
+     * @return string|null
      */
-    public function getStoreCode(): string
-    {
-        return $this->config->getStoreManager()->getStore()->getCode();
-    }
-
-    /**
-     * Return the current store's website code.
-     *
-     * @return string
-     */
-    public function getWebsiteCode(): string
-    {
-        return $this->config->getStoreManager()->getWebsite()->getCode();
+    public function getGoogleSiteVerification(
+        string $scope = ScopeInterface::SCOPE_STORES,
+        string|int|null $scopeCode = null
+    ): ?string {
+        return $this->config->getGoogleSiteVerification($scope, $scopeCode);
     }
 }

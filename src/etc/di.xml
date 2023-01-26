@@ -4,7 +4,7 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2023 August Ash, Inc. (https://www.augustash.com)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
@@ -12,14 +12,10 @@
     <preference for="Augustash\Backend\Api\ConfigInterface" type="Augustash\Backend\Model\Config"/>
 
     <type name="Magento\Framework\View\Element\Html\Link\Current">
-        <plugin name="augustash_hide_account_links" type="Augustash\Backend\Plugin\View\HideAccountLinksPlugin" sortOrder="10" disabled="false"/>
+        <plugin name="augustash_hide_customer_account_links" type="Augustash\Backend\Plugin\HideCustomerAccountLinksPlugin" sortOrder="10" disabled="false"/>
     </type>
 
     <type name="Magento\Framework\View\Page\Config">
-        <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\View\RemoveMetaKeywordsPlugin" sortOrder="10" disabled="false"/>
-    </type>
-
-    <type name="Magento\Catalog\Block\Product\Widget\NewWidget">
-        <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\Product\DisableCompareOnNewWidgetPlugin" sortOrder="10" disabled="false"/>
+        <plugin name="augustash_remove_meta_keywords" type="Augustash\Backend\Plugin\RemoveMetaKeywordsPlugin" sortOrder="10" disabled="false"/>
     </type>
 </config>

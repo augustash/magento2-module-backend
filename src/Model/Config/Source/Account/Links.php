@@ -4,24 +4,18 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2023 August Ash, Inc. (https://www.augustash.com)
  */
+
+declare(strict_types=1);
 
 namespace Augustash\Backend\Model\Config\Source\Account;
 
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Data\OptionSourceInterface;
 
-/**
- * Customer account links source class.
- */
 class Links implements OptionSourceInterface
 {
-    /**
-     * @var \Magento\Framework\App\ProductMetadataInterface
-     */
-    protected $productMetadata;
-
     /**
      * Constructor.
      *
@@ -30,9 +24,8 @@ class Links implements OptionSourceInterface
      * @param \Magento\Framework\App\ProductMetadataInterface $productMetadata
      */
     public function __construct(
-        ProductMetadataInterface $productMetadata
+        protected ProductMetadataInterface $productMetadata,
     ) {
-        $this->productMetadata = $productMetadata;
     }
 
     /**

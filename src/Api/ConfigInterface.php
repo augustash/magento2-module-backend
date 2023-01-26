@@ -4,16 +4,18 @@
  * August Ash Backend Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright 2022 August Ash, Inc. (https://www.augustash.com)
+ * @copyright 2023 August Ash, Inc. (https://www.augustash.com)
  */
+
+declare(strict_types=1);
 
 namespace Augustash\Backend\Api;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Store\Model\StoreManagerInterface;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * Service interface responsible for exposing configuration options.
+ *
  * @api
  */
 interface ConfigInterface
@@ -21,103 +23,43 @@ interface ConfigInterface
     /**
      * Configuration constants.
      */
-    public const XML_PATH_COMPARE_ENABLED = 'ash/general/disable_compare_enabled';
-    public const XML_PATH_HIDDEN_LINKS = 'ash/general/hidden_links';
-    public const XML_PATH_KEYWORDS_ENABLED = 'ash/general/disable_keywords_enabled';
-    public const XML_PATH_REVIEW_ENABLED = 'ash/general/disable_review_enabled';
+    public const XML_PATH_CUSTOMER_HIDDEN_LINKS = 'ash/general/hidden_account_links';
     public const XML_PATH_SITE_VERIFICATION_BING = 'ash/site_verification/bing';
     public const XML_PATH_SITE_VERIFICATION_GOOGLE = 'ash/site_verification/google';
 
     /**
-     * Returns a store manager object.
-     *
-     * @return \Magento\Store\Model\StoreManagerInterface
-     */
-    public function getStoreManager(): StoreManagerInterface;
-
-    /**
-     * Retrieves the module's config value for specified field.
-     *
-     * @param string $field
-     * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return mixed
-     */
-    public function getConfigValue(
-        string $field,
-        string $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
-        $scopeCode = null
-    );
-
-    /**
-     * Retrieves the list of links to hide.
+     * Retrieves the store's Bing site verification code.
      *
      * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return array
+     * @param string|int|null $scopeCode
+     * @return string|null
      */
-    public function getHiddenLinks(
-        string $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
-        $scopeCode = null
-    ): array;
-
-    /**
-     * Retrieves the module's meta keywords enabled status.
-     *
-     * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return bool
-     */
-    public function isDisableKeywords(
-        string $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
-        $scopeCode = null
-    ): bool;
-
-    /**
-     * Retrieves the module's product compare enabled status.
-     *
-     * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return bool
-     */
-    public function isDisableCompare(
-        string $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
-        $scopeCode = null
-    ): bool;
-
-    /**
-     * Retrieves the module's product review enabled status.
-     *
-     * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return bool
-     */
-    public function isDisableReview(
-        string $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
-        $scopeCode = null
-    ): bool;
-
-    /**
-     * Retrieves the module's Google site verification code.
-     *
-     * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return null|string
-     */
-    public function getGoogleSiteVerification(
-        string $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
-        $scopeCode = null
+    public function getBingSiteVerification(
+        string $scope = ScopeInterface::SCOPE_STORES,
+        string|int|null $scopeCode = null,
     ): ?string;
 
     /**
-     * Retrieves the module's Bing site verification code.
+     * Retrieves the store's list of customer links to hide.
      *
      * @param string $scope
-     * @param null|string|\Magento\Store\Model\Store $scopeCode
-     * @return null|string
+     * @param string|int|null $scopeCode
+     * @return array
      */
-    public function getBingSiteVerification(
-        string $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
-        $scopeCode = null
+    public function getCustomerLinksToHide(
+        string $scope = ScopeInterface::SCOPE_STORES,
+        string|int|null $scopeCode = null,
+    ): array;
+
+    /**
+     * Retrieves the store's Google site verification code.
+     *
+     * @param string $scope
+     * @param string|int|null $scopeCode
+     * @return string|null
+     */
+    public function getGoogleSiteVerification(
+        string $scope = ScopeInterface::SCOPE_STORES,
+        string|int|null $scopeCode = null,
     ): ?string;
 }

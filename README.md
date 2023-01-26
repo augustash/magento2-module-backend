@@ -20,12 +20,14 @@
 
 **This is a private module and is not currently aimed at public usage.**
 
-The `Augustash_Backend` module is our base structural module for all August Ash functionality. It must be present on all installations. Functionality provided by this module include:
+The `Augustash_Backend` module is our base structural module for August Ash functionality. It should be present on all installations.
+
+Functionality provided by this module include:
 
 * Basic configuration block to act as a home for other modules' sections and fields.
-* Removes the loading of some admin layout blocks to clean up the interface.
+* Adds command other code to check if in admin
 * Removes customer account links based on configuration.
-* Removes reviews/compare based on configuration.
+* Removes the loading of some admin layout blocks to clean up the interface.
 
 ## Installation
 
